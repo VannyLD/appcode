@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ID Search Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            text-align: center;
+            max-width: 400px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #fff;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            border: none;
+            color: white;
+            background-color: #007bff;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Search by ID</h2>
+        <input type="text" id="searchInput" placeholder="Enter ID (e.g., ID002)">
+        <button onclick="searchID()">Search</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // ID data mapping
+        const idData = {
+            "ID002": "YTML0011121K",
+            "ID005": "YTML001221K",
+            "ID009": "YTML001215K"
+            // Add more IDs and values as needed
+        };
+
+        // Function to search for ID and display result
+        function searchID() {
+            const inputID = document.getElementById("searchInput").value.trim().toUpperCase();
+            const resultDiv = document.getElementById("result");
+
+            if (idData[inputID]) {
+                resultDiv.innerHTML = `Result for <strong>${inputID}</strong>: ${idData[inputID]}`;
+            } else {
+                resultDiv.innerHTML = "ID not found. Please try again.";
+            }
+        }
+    </script>
+</body>
+</html>
